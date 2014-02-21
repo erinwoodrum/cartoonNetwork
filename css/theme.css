@@ -1,0 +1,46 @@
+#wrapper
+{
+	margin: 35px 400px 0px 400px;
+	width: 600px; 
+	border: 1px solid black;
+	padding: 12px;
+		
+	color:#454545;
+	font-size: 1em;
+	font-weight:bold;
+	background-color:#f1f1f1;
+	background-image:-moz-linear-gradient(center top , #ffffff, #f1f1f1);
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	
+	padding: 3px 5px 0 5px;
+	vertical-align: middle;
+	/*margin:0 3px 0 0px;*/
+	border-top:1px solid #c0c0c0;
+	border-left:1px solid #c0c0c0;
+	border-right:1px solid #c0c0c0;
+}
+h1
+{
+	font: verdana, arial; 
+}
+.li
+{
+	font: "Times New Roman", Times, serif; 
+}
+/* JQuery UI stuff  */
+#feedback { font-size: 1em; }
+#selectable .ui-selecting { background: #FECA40; }
+#selectable .ui-selected { background: #F39814; color: white; }
+#selectable { float: left;  list-style-type: none; margin: 0; padding: 0; width: 30%; }
+#selectable li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+#answer4 { height: 275px; float: right; margin-right: 60px; 1px solid white; }
+#spacer {height: 280px; width: 100%}
+.html_boxes
+{
+	 
+	font-size: 25; 
+	border: 1px solid white; 
+	margin: 5px; 
+}

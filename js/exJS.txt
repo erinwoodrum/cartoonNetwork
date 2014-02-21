@@ -1,0 +1,133 @@
+$( document ).ready(function()
+{
+	var pets = ["cat", "dog", "lizard", "llama", "rhinoceros", "hummingbird"]; 
+	//Instruction state to loop, so there is a loop... so let it be.
+	for(var x=0; x < pets.length; x++)
+	{
+		if(x == 2 && pets[x] != undefined)
+		{
+			//Instructions ask for alert, or console.  
+			//alert(pets[x]); // or console.log(pets[x]); 
+			$("#answer1").html(pets[x]); 
+		}
+	}
+	//load xml and traverse
+	var urls = {};
+	
+	$.ajax({
+        type: "GET",
+		url: "sampleXML.xml",
+		dataType: "xml",
+		success: function(xml) {
+			$(xml).find('pages').each(function()
+			{
+				$(this).find('page').each(function()
+				{
+					//console.log('here'); 
+					var domain = $(this).find('domain').text(); 
+					var pagetype = $(this).find('pagetype').text(); 
+					var showname = $(this).find('showname').text(); 
+					var subpagetype = $(this).find('subpagetype').text();
+					var file = $(this).find('file').text(); 
+					$("#answer2").html($("#answer2").html() + 'http://' + domain + '/' + pagetype + '/' + showname + '/' + subpagetype + '/' + file + '<br />');  
+				});
+			}) 
+		}}); 
+	
+	//Use old fashioned js to traverse a json object. 
+	
+	
+	//var items = JSON.parse(json_sample); 
+  // Parse json
+  //return JSON.parse(optionsText);
+  var finalString = ''; 
+$.getJSON("sampleJSON.json", function(json) {
+	$.each(json.items, function(key, val)
+	{
+		$.each(this, function(keye, value)
+		{
+			if(keye == 'title')
+			{
+				finalString = finalString + '<h3>' + value + '</h3>'; 
+			}
+			if(keye == 'author')
+			{
+				finalString = finalString + '<p>By:  ' + value + '<p>'; 
+			}
+		})
+	})
+	$(".news-story").html(finalString); 
+	
+});
+// Jquery UI effects. 
+ $(function() {
+$( "#selectable" ).selectable({ distance: 30 });
+});
+var count; 
+$("#pick1").click(function()
+{
+	drawBoxes(1);  
+}); 
+$("#pick2").click(function()
+{
+	drawBoxes(2); 
+}); 
+$("#pick3").click(function()
+{
+	drawBoxes(3); 
+});
+$("#pick4").click(function()
+{
+	drawBoxes(4); 
+}); 
+$("#pick5").click(function()
+{
+	drawBoxes(5);
+});
+$("#pick6").click(function()
+{
+	drawBoxes(6); 
+}); 
+drawBoxes(0);
+function drawBoxes(count)
+{
+	var html_boxes = '<h2>Topics in Selection</h2>';
+	for(var x= 1; x <= count; x++)
+	{
+		html_boxes += '<span class="html_boxes">' + x + '</span><br />'; 
+	}
+	$("#answer4").html(html_boxes);
+}
+
+	customers = {}; 
+
+	//Now for the combination JSON , number five. 
+	$.getJSON("names.json", function(node) {
+		$.each(node.names, function()
+		{
+			customers[this.id] = {
+				'first_name' : this.firstname, 
+				'last_name' : this.lastname
+			}
+		}); 
+	}); 
+	var lastString = 'Names/Address JSON <br />'; 
+	
+	$.getJSON("addresses.json", function(add) {
+		$.each(add.addresses, function()
+		{
+			customers[this.id]['street'] = this.street,
+			customers[this.id]['city'] = this.city,
+			customers[this.id]['state'] = this.state
+			lastString += customers[this.id]['first_name'] + ' ' + 
+				customers[this.id]['last_name'] + ' ' +
+				customers[this.id]['street'] + ' ' +
+				customers[this.id]['city'] + ' ' +
+				customers[this.id]['state'] + '<br />'; 
+				
+		});
+		$("#answer5").html(lastString); 
+	});
+
+//console.log(lastString); 
+}); 

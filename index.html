@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html data-ng-app="">
+	<head>
+		<meta name="description" content="Erin Cooks Examples">
+		<meta name="keywords" content="HTML,CSS,XML,JavaScript, JQuery">
+		<meta name="author" content="Erin Cook">
+		<meta charset="UTF-8">
+		<title>Pure JS Web App</title>
+		<!--
+		<script src="C:/js_lib/backbone.js"></script>
+		<script src="C:/js_lib/jquery-1.11.0.min.js"></script> -->
+	</head>
+	<body data-ng-controller="simpleController">
+		<input type="text" data-ng-model="name" /> 
+		<div class="Container">
+			<h3>Some header...</h3>
+			<ul>
+				<li data-ng-repeat="cust in customers | filter:name | orderBy:'city'"> {{cust.name | uppercase}} - {{cust.city}} </li>
+			</ul>
+		
+		</div>
+		<script src="../js_lib/angular.js"></script>
+		<script>
+			function simpleController($scope)
+			{
+				$scope.customers = [
+					{name:'Dave', city:'New York'}, 
+					{name:'Erin', city:'San  Francisco'},
+					{ name:'Lucas', city: 'Atlanta'}]; 
+			}
+		
+		</script>
+	</body>
+</html>

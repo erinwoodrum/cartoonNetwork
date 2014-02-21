@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pages>
+<page>
+<domain>www.cartoonnetwork.com</domain>
+<pagetype>tv_shows</pagetype>
+<showname>adventuretime</showname>
+<subpagetype>video</subpagetype>
+<file>index.html</file>
+</page>
+<page>
+<domain>www.cartoonnetwork.com</domain>
+<pagetype>games</pagetype>
+<showname>regularshow</showname>
+<subpagetype>winging-it</subpagetype>
+<file>index.html</file>
+</page>
+<page>
+<domain>www.cartoonnetwork.com</domain>
+<pagetype>tv_shows</pagetype>
+<showname>ninjago</showname>
+<subpagetype>characters</subpagetype><file>index.html</file>
+</page>
+</pages>
